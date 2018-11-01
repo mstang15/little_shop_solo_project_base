@@ -28,7 +28,7 @@ class User < ApplicationRecord
       .where("order_items.fulfilled=?", true)
       .sum("order_items.quantity")
   end
-  
+
   def total_inventory
     items.sum(:inventory)
   end
@@ -105,6 +105,7 @@ class User < ApplicationRecord
       .group('orders.id, users.id, order_items.id')
       .order('total_earned desc, users.name')
       .limit(quantity)
+
   end
 
   def self.popular_merchants(quantity)
@@ -120,8 +121,8 @@ class User < ApplicationRecord
   end
 
   def self.merchant_by_speed(quantity, order)
-    select("distinct users.*, 
-      CASE 
+    select("distinct users.*,
+      CASE
         WHEN order_items.updated_at > order_items.created_at THEN coalesce(EXTRACT(EPOCH FROM order_items.updated_at) - EXTRACT(EPOCH FROM order_items.created_at),0)
         ELSE 1000000000 END as time_diff")
       .joins(:items)
@@ -139,5 +140,17 @@ class User < ApplicationRecord
 
   def self.slowest_merchants(quantity)
     merchant_by_speed(quantity, :desc)
+  end
+
+  def items_with_stock_image
+    items.find_all do |item|
+      item.image.include?("https://picsum.photos/200/300?image=")
+    end
+  end
+
+  def orders_with_pending_status
+    items
+      .joins(:orders)
+      .where("order_items.fulfilled=?", false)
   end
 end
