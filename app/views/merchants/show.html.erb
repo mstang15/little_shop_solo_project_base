@@ -91,7 +91,7 @@
 <% end %>
 
 <% if current_user.merchant? %>
-  <h4>You have <%= @merchant.orders_with_pending_status.count%> unfulfilled orders worth <%=binding.pry%><%= number_to_currency(sum(@merchant.orders_with_pending_status.pluck(:price)))%></h4>
+  <h4>You have <%= @merchant.orders_with_pending_status.count%> unfulfilled orders worth <%= number_to_currency(@merchant.revenue_impact.sum)%></h4>
 <% end %>
 
 <% if current_admin? %>

@@ -153,4 +153,10 @@ class User < ApplicationRecord
       .joins(:orders)
       .where("order_items.fulfilled=?", false)
   end
+
+  def revenue_impact
+    items
+      .joins(:orders)
+      .where("order_items.fulfilled=?", false).pluck(:price)
+  end
 end
