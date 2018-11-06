@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#show'
   namespace :dashboard do
     resources :orders, only: [:index]
-    resources :items, param: :slug, only: [:index]
+    resources :items, only: [:index]
   end
 
   resources :orders, only: [:index, :show, :create] do
@@ -26,13 +26,18 @@ Rails.application.routes.draw do
   resources :order_items, only: [:update]
 
   resources :items, param: :slug, only: [:index, :show]
-  resources :users, only: [:index, :new, :create, :edit, :show, :update] do
+  resources :users, param: :slug, only: [:index, :new, :create, :edit, :show, :update] do
     resources :orders, only: [:index, :update]
     patch 'enable', to: 'users#update'
     patch 'disable', to: 'users#update'
   end
 
-  resources :merchants, only: [:index, :update, :show] do
+  namespace :admin do
+    resources :users, param: :slug, only:[:edit,:update]
+    resources :items, param: :slug, only:[:edit,:update]
+  end
+
+  resources :merchants, param: :slug, only: [:index, :update, :show] do
     resources :orders, only: [:index]
     resources :items, param: :slug, only: [:index, :new, :edit, :create, :update] do
       patch 'enable', to: 'items#update'

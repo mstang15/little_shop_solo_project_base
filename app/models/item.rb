@@ -3,7 +3,6 @@ class Item < ApplicationRecord
   has_many :order_items
   has_many :orders, through: :order_items
 
-  after_validation :set_slug, only: [:create, :update, :show]
 
   validates_presence_of :name, :description
   validates :price, presence: true, numericality: {
@@ -14,9 +13,12 @@ class Item < ApplicationRecord
     only_integer: true,
     greater_than_or_equal_to: 0
   }
+  validates :slug, uniqueness: true
+
+  after_validation :set_slug
 
   def to_param
-    "#{slug}"
+    slug
   end
 
   def self.popular_items(quantity)
@@ -32,7 +34,7 @@ class Item < ApplicationRecord
   private
 
   def set_slug
-    self.slug = name.to_s.parameterize
+    self.slug = name.to_s.parameterize+(rand(0..100000000).to_s)
   end
 
 end
