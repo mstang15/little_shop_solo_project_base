@@ -3,6 +3,8 @@ class Item < ApplicationRecord
   has_many :order_items
   has_many :orders, through: :order_items
 
+  after_validation :set_slug, only: [:create, :update, :show]
+
   validates_presence_of :name, :description
   validates :price, presence: true, numericality: {
     only_integer: false,
@@ -13,6 +15,10 @@ class Item < ApplicationRecord
     greater_than_or_equal_to: 0
   }
 
+  def to_param
+    "#{slug}"
+  end
+
   def self.popular_items(quantity)
     select('items.*, sum(order_items.quantity) as total_ordered')
       .joins(:orders)
@@ -21,6 +27,12 @@ class Item < ApplicationRecord
       .group('items.id, order_items.id')
       .order('total_ordered desc')
       .limit(quantity)
+  end
+
+  private
+
+  def set_slug
+    self.slug = name.to_s.parameterize
   end
 
 end
