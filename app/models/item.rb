@@ -15,7 +15,7 @@ class Item < ApplicationRecord
   }
   validates :slug, uniqueness: true
 
-  after_validation :set_slug
+  before_create :set_slug
 
   def to_param
     slug
@@ -34,7 +34,7 @@ class Item < ApplicationRecord
   private
 
   def set_slug
-    self.slug = name.to_s.parameterize+(rand(0..100000000).to_s)
+    self.slug = name.to_s.parameterize+(rand(0..100).to_s)
   end
 
 end

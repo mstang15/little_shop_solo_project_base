@@ -1,5 +1,4 @@
 class Admin::ItemsController < ApplicationController
-
   before_action :require_admin
 
   def edit
@@ -7,8 +6,12 @@ class Admin::ItemsController < ApplicationController
   end
 
   def update
-
+    @item = Item.find_by(slug: params[:slug])
+    @item.update(item_params)
+      flash[:success] = "Item updated"
+      redirect_to item_path(@item)
   end
+
 
   private
 
@@ -21,4 +24,5 @@ class Admin::ItemsController < ApplicationController
       render file: "/app/views/errors/not_found"
     end
   end
+
 end

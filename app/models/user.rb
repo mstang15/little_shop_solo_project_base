@@ -3,14 +3,14 @@ class User < ApplicationRecord
 
   has_many :orders
   has_many :items
-  after_validation :set_slug, only: [:create,:edit,:update,:show]
   validates_presence_of :name, :address, :city, :state, :zip
   validates :email, presence: true, uniqueness: true
 
   enum role: %w(user merchant admin)
+  before_create :set_slug
 
   def to_param
-    "#{slug}"
+    slug
   end
 
   def merchant_orders(status=nil)
@@ -167,6 +167,6 @@ class User < ApplicationRecord
   private
 
   def set_slug
-    self.slug = name.to_s.parameterize+(rand(0..100000000).to_s)
+    self.slug = name.to_s.parameterize+(rand(0..100).to_s)
   end
 end
