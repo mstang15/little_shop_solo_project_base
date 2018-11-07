@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin-only user management' do 
+RSpec.describe 'Admin-only user management' do
   before(:each) do
     @admin = create(:admin)
     @active_user = create(:user)
@@ -12,7 +12,7 @@ RSpec.describe 'Admin-only user management' do
     fill_in :email, with: @admin.email
     fill_in :password, with: @admin.password
     click_button 'Log in'
-  
+
     visit users_path
 
     within "#user-#{@active_user.id}" do
@@ -54,7 +54,7 @@ RSpec.describe 'Admin-only user management' do
     fill_in :email, with: @inactive_user.email
     fill_in :password, with: @inactive_user.password
     click_button 'Log in'
-    
+
     expect(current_path).to eq(profile_path)
   end
 
@@ -63,7 +63,7 @@ RSpec.describe 'Admin-only user management' do
     fill_in :email, with: @admin.email
     fill_in :password, with: @admin.password
     click_button 'Log in'
-  
+
     visit users_path
 
     within "#user-#{@active_user.id}" do
@@ -83,7 +83,7 @@ RSpec.describe 'Admin-only user management' do
     fill_in :email, with: @admin.email
     fill_in :password, with: @admin.password
     click_button 'Log in'
-  
+
     visit users_path
 
     within "#user-#{@active_merchant.id}" do
@@ -96,5 +96,32 @@ RSpec.describe 'Admin-only user management' do
       expect(page).to have_button("Upgrade to Merchant")
       expect(page).to_not have_button("Downgrade to User")
     end
+  end
+
+  it 'allows admin to edit slugs for users' do
+    visit login_path
+    fill_in :email, with: @admin.email
+    fill_in :password, with: @admin.password
+    click_button 'Log in'
+
+    visit user_path(@active_user)
+    click_link "Edit Profile Data"
+
+    expect(current_path).to eq(edit_admin_user_path(@active_user))
+    fill_in "Slug", with: "update"
+    click_button 'Update User'
+
+    expect(current_path).to eq('/users/update')
+  end
+
+  it 'throws a not_found page when non users try to edit slugs' do
+    visit login_path
+    fill_in :email, with: @active_user.email
+    fill_in :password, with: @active_user.password
+    click_button 'Log in'
+
+    visit edit_admin_user_path(@active_user)
+
+    expect(page).to have_content("The page you're looking for could not be found.")
   end
 end

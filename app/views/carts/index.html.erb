@@ -14,10 +14,10 @@
 
   <tbody>
     <% @items.each do |item| %>
-      <tr id="item-<%= item.id %>">
+      <tr id="item-<%= item.slug %>">
         <td><%= link_to item.name, item_path(item) %></td>
         <td>
-          <img id="item-image-<%= item.id %>" alt="image for <%= item.name %>" src="<%= item.image %>" width="200" />
+          <img id="item-image-<%= item.slug %>" alt="image for <%= item.name %>" src="<%= item.image %>" width="200" />
         </td>
         <td>Merchant: <%= item.user.name %></td>
         <td>Price: <%= item.price %></td>
