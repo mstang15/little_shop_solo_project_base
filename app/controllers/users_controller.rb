@@ -15,7 +15,7 @@ class UsersController < ApplicationController
           @user = User.find(params[:slug])
         end
         if @user.merchant?
-          redirect_to merchant_path(@user.id)
+          redirect_to merchant_path(@user)
         end
       else
         render file: 'errors/not_found', status: 404

@@ -4,6 +4,8 @@ class Item < ApplicationRecord
   has_many :orders, through: :order_items
 
 
+  before_create :set_slug
+  validates :slug, uniqueness: true
   validates_presence_of :name, :description
   validates :price, presence: true, numericality: {
     only_integer: false,
@@ -13,9 +15,7 @@ class Item < ApplicationRecord
     only_integer: true,
     greater_than_or_equal_to: 0
   }
-  validates :slug, uniqueness: true
 
-  before_create :set_slug
 
   def to_param
     slug

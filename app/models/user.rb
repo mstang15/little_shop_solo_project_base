@@ -3,11 +3,12 @@ class User < ApplicationRecord
 
   has_many :orders
   has_many :items
+  before_create :set_slug
+  validates :slug, uniqueness: true
   validates_presence_of :name, :address, :city, :state, :zip
   validates :email, presence: true, uniqueness: true
 
   enum role: %w(user merchant admin)
-  before_create :set_slug
 
   def to_param
     slug
