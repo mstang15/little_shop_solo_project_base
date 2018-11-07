@@ -114,4 +114,14 @@ RSpec.describe 'Admin-only user management' do
     expect(current_path).to eq('/users/update')
   end
 
+  it 'throws a not_found page when non users try to edit slugs' do
+    visit login_path
+    fill_in :email, with: @active_user.email
+    fill_in :password, with: @active_user.password
+    click_button 'Log in'
+
+    visit edit_admin_user_path(@active_user)
+
+    expect(page).to have_content("The page you're looking for could not be found.")
+  end
 end

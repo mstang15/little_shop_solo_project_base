@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-06T20:59:22-07:00">2018-11-06T20:59:22-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-06T21:03:25-07:00">2018-11-06T21:03:25-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">99.95%</span></span>
+    (<span class="covered_percent"><span class="green">100.0%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.51
+         3.53
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>42</b> files in total.
-    <b>1951</b> relevant lines. 
-    <span class="green"><b>1950</b> lines covered</span> and
-    <span class="red"><b>1</b> lines missed </span>
+    <b>1958</b> relevant lines. 
+    <span class="green"><b>1958</b> lines covered</span> and
+    <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -52,12 +52,12 @@
       
       <tr>
         <td class="strong"><a href="#49363785a3622bbaf50deabc0be8a660f92e8691" class="src_link" title="app/controllers/admin/users_controller.rb">app/controllers/admin/users_controller.rb</a></td>
-        <td class="green strong">93.33 %</td>
+        <td class="green strong">100.0 %</td>
         <td>30</td>
         <td>15</td>
-        <td>14</td>
-        <td>1</td>
-        <td>1.8</td>
+        <td>15</td>
+        <td>0</td>
+        <td>1.9</td>
       </tr>
       
       <tr>
@@ -67,7 +67,7 @@
         <td>10</td>
         <td>10</td>
         <td>0</td>
-        <td>181.4</td>
+        <td>184.7</td>
       </tr>
       
       <tr>
@@ -167,7 +167,7 @@
         <td>19</td>
         <td>19</td>
         <td>0</td>
-        <td>6.9</td>
+        <td>7.3</td>
       </tr>
       
       <tr>
@@ -197,7 +197,7 @@
         <td>26</td>
         <td>26</td>
         <td>0</td>
-        <td>29.4</td>
+        <td>29.7</td>
       </tr>
       
       <tr>
@@ -273,9 +273,9 @@
       <tr>
         <td class="strong"><a href="#2a6f998ef74d8e2f63353d907aaa1b4f11375bf4" class="src_link" title="spec/features/admin/user_mgmt_spec.rb">spec/features/admin/user_mgmt_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>117</td>
-        <td>83</td>
-        <td>83</td>
+        <td>127</td>
+        <td>90</td>
+        <td>90</td>
         <td>0</td>
         <td>1.2</td>
       </tr>
@@ -489,11 +489,11 @@
         <div class="source_table" id="49363785a3622bbaf50deabc0be8a660f92e8691">
   <div class="header">
     <h3>app/controllers/admin/users_controller.rb</h3>
-    <h4><span class="green">93.33 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>15</b> relevant lines. 
-      <span class="green"><b>14</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <span class="green"><b>15</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -644,14 +644,14 @@
           <code class="ruby">  def require_admin</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="25">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="25">
+          <span class="hits">7</span>
           
           <code class="ruby">    if !current_admin?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="26">
-          
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
           
           <code class="ruby">      render file: &quot;/app/views/errors/not_found&quot;</code>
         </li>
@@ -741,8 +741,8 @@
           <code class="ruby">  def current_user</code>
         </li>
       
-        <li class="covered" data-hits="819" data-linenumber="8">
-          <span class="hits">819</span>
+        <li class="covered" data-hits="842" data-linenumber="8">
+          <span class="hits">842</span>
           
           <code class="ruby">    @current_user_lookup ||= User.find(session[:user_id]) if session[:user_id]</code>
         </li>
@@ -765,8 +765,8 @@
           <code class="ruby">  def current_admin?</code>
         </li>
       
-        <li class="covered" data-hits="686" data-linenumber="12">
-          <span class="hits">686</span>
+        <li class="covered" data-hits="692" data-linenumber="12">
+          <span class="hits">692</span>
           
           <code class="ruby">    current_user &amp;&amp; current_user.admin?</code>
         </li>
@@ -789,8 +789,8 @@
           <code class="ruby">  def build_cart</code>
         </li>
       
-        <li class="covered" data-hits="302" data-linenumber="16">
-          <span class="hits">302</span>
+        <li class="covered" data-hits="306" data-linenumber="16">
+          <span class="hits">306</span>
           
           <code class="ruby">    @cart ||= Cart.new(session[:cart])</code>
         </li>
@@ -2719,8 +2719,8 @@
           <code class="ruby">  def new </code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="3">
-          <span class="hits">20</span>
+        <li class="covered" data-hits="21" data-linenumber="3">
+          <span class="hits">21</span>
           
           <code class="ruby">    if current_user</code>
         </li>
@@ -2761,32 +2761,32 @@
           <code class="ruby">  def create </code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="10">
-          <span class="hits">18</span>
+        <li class="covered" data-hits="19" data-linenumber="10">
+          <span class="hits">19</span>
           
           <code class="ruby">    user = User.find_by(email: params[:email])</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="11">
-          <span class="hits">18</span>
+        <li class="covered" data-hits="19" data-linenumber="11">
+          <span class="hits">19</span>
           
           <code class="ruby">    if user &amp;&amp; user.authenticate(params[:password])</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="12">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="17" data-linenumber="12">
+          <span class="hits">17</span>
           
           <code class="ruby">      if user.active?</code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="13">
-          <span class="hits">14</span>
+        <li class="covered" data-hits="15" data-linenumber="13">
+          <span class="hits">15</span>
           
           <code class="ruby">        session[:user_id] = user.id</code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="14">
-          <span class="hits">14</span>
+        <li class="covered" data-hits="15" data-linenumber="14">
+          <span class="hits">15</span>
           
           <code class="ruby">        redirect_to profile_path</code>
         </li>
@@ -2948,20 +2948,20 @@
           <code class="ruby">  def show</code>
         </li>
       
-        <li class="covered" data-hits="33" data-linenumber="8">
-          <span class="hits">33</span>
+        <li class="covered" data-hits="34" data-linenumber="8">
+          <span class="hits">34</span>
           
           <code class="ruby">    if request.fullpath == &#39;/profile&#39;</code>
         </li>
       
-        <li class="covered" data-hits="21" data-linenumber="9">
-          <span class="hits">21</span>
+        <li class="covered" data-hits="22" data-linenumber="9">
+          <span class="hits">22</span>
           
           <code class="ruby">      render file: &#39;errors/not_found&#39;, status: 404 unless current_user</code>
         </li>
       
-        <li class="covered" data-hits="21" data-linenumber="10">
-          <span class="hits">21</span>
+        <li class="covered" data-hits="22" data-linenumber="10">
+          <span class="hits">22</span>
           
           <code class="ruby">      @user = current_user</code>
         </li>
@@ -3616,8 +3616,8 @@
           <code class="ruby">  def initialize(initial_contents)</code>
         </li>
       
-        <li class="covered" data-hits="312" data-linenumber="5">
-          <span class="hits">312</span>
+        <li class="covered" data-hits="316" data-linenumber="5">
+          <span class="hits">316</span>
           
           <code class="ruby">    @contents = initial_contents || Hash.new(0)</code>
         </li>
@@ -3640,8 +3640,8 @@
           <code class="ruby">  def total_count</code>
         </li>
       
-        <li class="covered" data-hits="235" data-linenumber="9">
-          <span class="hits">235</span>
+        <li class="covered" data-hits="238" data-linenumber="9">
+          <span class="hits">238</span>
           
           <code class="ruby">    @contents.values.sum</code>
         </li>
@@ -5163,8 +5163,8 @@
     <h3>spec/features/admin/user_mgmt_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>83</b> relevant lines. 
-      <span class="green"><b>83</b> lines covered</span> and
+      <b>90</b> relevant lines. 
+      <span class="green"><b>90</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -5196,26 +5196,26 @@
           <code class="ruby">  before(:each) do</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="5">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="5">
+          <span class="hits">6</span>
           
           <code class="ruby">    @admin = create(:admin)</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="6">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="6">
+          <span class="hits">6</span>
           
           <code class="ruby">    @active_user = create(:user)</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="7">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="7">
+          <span class="hits">6</span>
           
           <code class="ruby">    @inactive_user = create(:inactive_user)</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="8">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="8">
+          <span class="hits">6</span>
           
           <code class="ruby">    @active_merchant = create(:merchant)</code>
         </li>
@@ -5868,7 +5868,67 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="117">
+        <li class="covered" data-hits="1" data-linenumber="117">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  it &#39;throws a not_found page when non users try to edit slugs&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="118">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    visit login_path</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="119">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    fill_in :email, with: @active_user.email</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="120">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    fill_in :password, with: @active_user.password</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="121">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    click_button &#39;Log in&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="122">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="123">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    visit edit_admin_user_path(@active_user)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="124">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="125">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(page).to have_content(&quot;The page you&#39;re looking for could not be found.&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="126">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="127">
           
           
           <code class="ruby">end</code>
