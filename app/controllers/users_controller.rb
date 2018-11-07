@@ -32,11 +32,11 @@ class UsersController < ApplicationController
     if current_user
       @user = current_user
     end
-      if current_admin? && params[:slug]
+    if current_admin? && params[:slug]
         @user = User.find_by(slug: params[:slug])
-      elsif current_user && params[:slug] && current_user.slug != params[:slug]
-        render file: 'errors/not_found', status: 404
-      end
+    elsif current_user && params[:slug] && current_user.slug != params[:slug]
+      render file: 'errors/not_found', status: 404
+    end
   end
 
   def update
